@@ -49,3 +49,40 @@ if document.getElementById('contact-details'):
 
 if document.getElementById('email-info'):
     display(f"📧 Email: {contact_email}", target="email-info")
+
+# Order Form
+
+prices = {
+    'adobo': 250,
+    'sinigang': 250,
+    'sisig': 150,
+    'tinola': 120,
+    'lumpia': 220,
+}
+
+def sample_function(e):
+    name = document.getElementById('text1').value
+    address = document.getElementById('text2').value
+    contact = document.getElementById('text3').value
+
+    adobo_price = prices['adobo'] if document.getElementById('adobo').checked else 0
+    sinigang_price = prices['sinigang'] if document.getElementById('sinigang').checked else 0
+    sisig_price = prices['sisig'] if document.getElementById('sisig').checked else 0
+    tinola_price = prices['tinola'] if document.getElementById('tinola').checked else 0
+    lumpia_price = prices['lumpia'] if document.getElementById('lumpia').checked else 0
+
+    total = adobo_price + sinigang_price + sisig_price + tinola_price + lumpia_price
+
+    document.getElementById('output').innerHTML = ""
+
+    display(f'Order Receipt', target='output')
+    display("----------------------", target='output')
+    display(f'Order for: {name}', target='output')
+    display(f'Address: {address}', target='output')
+    display(f'Contact number: {contact}', target='output')
+    display("----------------------", target='output')
+
+    display(f'Total Price: ₱{total}', target='output')
+
+    display("----------------------", target='output')
+   
